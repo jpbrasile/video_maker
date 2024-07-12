@@ -60,7 +60,7 @@ def process_story_slide(slide_data, output_dir):
             'number': slide_number,
             'title': f"Slide {slide_number}",
             'description': slide_data['voiceOver']
-        }, output_dir, image_exists)
+        }, output_dir, image_exists, f"story_slide_{slide_number}_image.png")
         html_file = os.path.join(output_dir, f"story_slide_{slide_number}.html")
         with open(html_file, 'w', encoding='utf-8') as f:
             f.write(html_content)
@@ -137,13 +137,13 @@ def get_slides_from_claude(content):
 
     return extract_content(message.content)
 
-def create_html_slide(slide_data, output_dir, image_exists):
+def create_html_slide(slide_data, output_dir, image_exists, image_filename=None):
     title = slide_data.get('title', 'Titre non disponible')
     description = slide_data.get('description', 'Contenu non disponible')
     code = slide_data.get('code', '')
     slide_number = slide_data.get('number', '0')
     
-    image_path = f"slide_{slide_number}_image.png" if image_exists else ""
+    image_path = image_filename if image_exists and image_filename else f"slide_{slide_number}_image.png"
     
     html_template = f"""
     <!DOCTYPE html>
@@ -350,7 +350,7 @@ def process_slide(slide_data, output_dir):
             print(f"Avertissement : L'image pour la diapositive {slide_number} n'existe pas")
 
         # Créer le HTML après la génération de l'image
-        html_content = create_html_slide(slide_data, output_dir, image_exists)
+        html_content = create_html_slide(slide_data, output_dir, image_exists, f"slide_{slide_number}_image.png")
         html_file = os.path.join(output_dir, f"slide_{slide_number}.html")
         with open(html_file, 'w', encoding='utf-8') as f:
             f.write(html_content)
