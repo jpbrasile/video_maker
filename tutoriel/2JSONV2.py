@@ -427,10 +427,10 @@ def create_video_from_slide(html_file, audio_file, output_file, duration=None):
 
 
 
-def aggregate_videos(output_dir, num_slides, transition_duration=1):
+def aggregate_videos(output_dir, num_slides, prefix="", transition_duration=1):
     video_clips = []
     for i in range(1, num_slides + 1):
-        video_path = os.path.join(output_dir, f"video_{i}.mp4")
+        video_path = os.path.join(output_dir, f"{prefix}video_{i}.mp4")
         if os.path.exists(video_path):
             clip = VideoFileClip(video_path)
             
@@ -451,10 +451,10 @@ def aggregate_videos(output_dir, num_slides, transition_duration=1):
     final_clip = concatenate_videoclips(video_clips, method="compose")
     
     # Exporter la vidéo finale
-    final_output = os.path.join(output_dir, "final_video.mp4")
+    final_output = os.path.join(output_dir, f"{prefix}final_video.mp4")
     final_clip.write_videofile(final_output, fps=24)
     
-    # Fermer les clips pour libérer les ressources
+    #Fermer les clips pour libérer les ressources
     for clip in video_clips:
         clip.close()
     final_clip.close()
@@ -465,39 +465,57 @@ def main():
     output_dir = "output"
     os.makedirs(output_dir, exist_ok=True)
 
-    # Lire le contenu du fichier
-    try:
-        with open('PLACE_HOLDER_TEXTE_VIDEO.txt', 'r', encoding='utf-8') as file:
-            content = file.read()
-        print("Contenu du fichier PLACE_HOLDER_TEXTE_VIDEO.txt lu avec succès.")
-    except FileNotFoundError:
-        print("Erreur : Le fichier PLACE_HOLDER_TEXTE_VIDEO.txt n'a pas été trouvé.")
+    # Demander à l'utilisateur de choisir le mode
+    mode = input("Choisissez le mode (1: PLACE_HOLDER_TEXTE_VIDEO.txt, 2: story.json) : ").strip()
+
+    if mode == "1":
+        # Mode PLACE_HOLDER_TEXTE_VIDEO.txt (fonctionnement actuel)
+        try:
+            with open('PLACE_HOLDER_TEXTE_VIDEO.txt', 'r', encoding='utf-8') as file:
+                content = file.read()
+            print("Contenu du fichier PLACE_HOLDER_TEXTE_VIDEO.txt lu avec succès.")
+        except FileNotFoundError:
+            print("Erreur : Le fichier PLACE_HOLDER_TEXTE_VIDEO.txt n'a pas été trouvé.")
+            return
+        except Exception as e:
+            print(f"Erreur lors de la lecture du fichier : {str(e)}")
+            return
+
+        # Obtenir le JSON structuré de Claude
+        json_content = get_slides_from_claude(content)
+        print("JSON obtenu de Claude.")
+
+        # Nettoyer le JSON
+        json_content = json_content.replace("```json", "").replace("```", "").strip()
+
+        # Parser le JSON
+        try:
+            slides_data = json.loads(json_content)
+            print(f"JSON parsé avec succès. Nombre de diapositives : {len(slides_data)}")
+        except json.JSONDecodeError as e:
+            print(f"Erreur lors du parsing JSON : {e}")
+            print("Contenu JSON problématique:")
+            print(json_content)
+            return
+
+        # Écrire le JSON dans un fichier
+        with open('slides_data.json', 'w', encoding='utf-8') as json_file:
+            json.dump(slides_data, json_file, ensure_ascii=False, indent=2)
+        print("Fichier JSON sauvegardé : slides_data.json")
+
+        process_func = process_slide
+
+    elif mode == "2":
+        # Mode story.json
+        story_data = read_story_json('story.json')
+        if story_data is None:
+            return
+        slides_data = story_data['story']
+        process_func = process_story_slide
+
+    else:
+        print("Mode non valide. Fin du programme.")
         return
-    except Exception as e:
-        print(f"Erreur lors de la lecture du fichier : {str(e)}")
-        return
-
-    # Obtenir le JSON structuré de Claude
-    json_content = get_slides_from_claude(content)
-    print("JSON obtenu de Claude.")
-
-    # Nettoyer le JSON
-    json_content = json_content.replace("```json", "").replace("```", "").strip()
-
-    # Parser le JSON
-    try:
-        slides_data = json.loads(json_content)
-        print(f"JSON parsé avec succès. Nombre de diapositives : {len(slides_data)}")
-    except json.JSONDecodeError as e:
-        print(f"Erreur lors du parsing JSON : {e}")
-        print("Contenu JSON problématique:")
-        print(json_content)
-        return
-
-    # Écrire le JSON dans un fichier
-    with open('slides_data.json', 'w', encoding='utf-8') as json_file:
-        json.dump(slides_data, json_file, ensure_ascii=False, indent=2)
-    print("Fichier JSON sauvegardé : slides_data.json")
 
     # Demander à l'utilisateur s'il veut traiter une seule diapositive ou toutes
     test_mode = input("Voulez-vous traiter une seule diapositive ? (O/N) : ").strip().lower()
@@ -506,20 +524,20 @@ def main():
         slide_number = int(input("Entrez le numéro de la diapositive à traiter : ")) - 1
         if 0 <= slide_number < len(slides_data):
             print(f"Traitement de la diapositive {slide_number + 1}...")
-            process_slide(slides_data[slide_number], output_dir)
+            process_func(slides_data[slide_number], output_dir)
         else:
             print(f"Aucune diapositive trouvée avec le numéro {slide_number + 1}")
     else:
         # Traiter chaque diapositive
         for i, slide in enumerate(slides_data, 1):
             print(f"Traitement de la diapositive {i}...")
-            process_slide(slide, output_dir)
+            process_func(slide, output_dir)
 
         print("Traitement de toutes les diapositives terminé.")
 
         # Agréger les vidéos
         print("Agrégation des vidéos...")
-        aggregate_videos(output_dir, len(slides_data))
+        aggregate_videos(output_dir, len(slides_data), "story_" if mode == "2" else "")
 
     print("Processus complet terminé.")
 
