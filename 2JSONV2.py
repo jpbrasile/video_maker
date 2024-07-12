@@ -532,7 +532,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     # Demander à l'utilisateur de choisir le mode
-    mode = input("Choisissez le mode (1: PLACE_HOLDER_TEXTE_VIDEO.txt, 2: story.json) : ").strip()
+    mode = input("Choisissez le mode (1: PLACE_HOLDER_TEXTE_VIDEO.txt, 2: story.json, 3: Test local) : ").strip()
 
     if mode == "1":
         # Mode PLACE_HOLDER_TEXTE_VIDEO.txt (fonctionnement actuel)
@@ -579,12 +579,38 @@ def main():
         slides_data = story_data['story']
         process_func = process_story_slide
 
+    elif mode == "3":
+        # Mode test local
+        slides_data = [
+            {
+                "number": 1,
+                "title": "Diapositive de test",
+                "description": "Ceci est une diapositive de test pour le mode local.",
+                "image_url": "https://example.com/test_image.jpg"
+            }
+        ]
+        process_func = process_slide
     else:
         print("Mode non valide. Fin du programme.")
         return
 
     # Demander à l'utilisateur s'il veut traiter une seule diapositive ou toutes
     test_mode = input("Voulez-vous traiter une seule diapositive ? (O/N) : ").strip().lower()
+
+    # Fonction de remplacement pour le mode test
+    def mock_generate_image(prompt):
+        return "https://via.placeholder.com/1024x1024.png?text=Image+de+test"
+
+    def mock_text_to_speech(text, output_path):
+        with open(output_path, 'w') as f:
+            f.write("Ceci est un fichier audio de test")
+        print(f"Fichier audio de test créé : {output_path}")
+
+    # Remplacer les fonctions réelles par les mocks en mode test
+    if mode == "3":
+        global generate_image, text_to_speech
+        generate_image = mock_generate_image
+        text_to_speech = mock_text_to_speech
 
     if test_mode == 'o':
         slide_number = int(input("Entrez le numéro de la diapositive à traiter : ")) - 1
