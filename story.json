@@ -1,0 +1,74 @@
+{
+  "story": [
+    {
+      "id": 1,
+      "voiceOver": "Imaginez un monde presque comme le nôtre, mais où certains enfants naissent avec des pouvoirs extraordinaires. Dans un petit village paisible vit Piper McNimbus, une fille pas tout à fait comme les autres.",
+      "imagePrompt": "Village_street_1 on a sunny day. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing a simple t-shirt and jeans) walks down the street, looking slightly anxious. Villagers_1 (various ages, casual clothing) go about their daily activities. Quaint_houses_1 (colorful, small gardens) line the street. The atmosphere is peaceful with a hint of hidden excitement."
+    },
+    {
+      "id": 2,
+      "voiceOver": "Piper a un secret incroyable : elle peut voler ! Oui, vous avez bien entendu. Voler comme un oiseau, planer comme un avion, faire des loopings dans les airs. C'est son don depuis sa naissance.",
+      "imagePrompt": "Night_sky_1 with a full moon. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing pajamas) soars through the air, arms outstretched, with a joyful expression. Clouds_1 (wispy, moonlit) surround her. Stars_1 (twinkling, numerous) fill the background. The atmosphere is magical and liberating."
+    },
+    {
+      "id": 3,
+      "voiceOver": "Mais la maman de Piper a très peur. Elle pense que si les gens découvrent le pouvoir de sa fille, ils la traiteront différemment, peut-être même qu'ils lui feront du mal. Alors, elle demande à Piper de ne jamais, jamais montrer son don à personne.",
+      "imagePrompt": "Kitchen_1 in a cozy house. Mother_1 (40 years old, worried expression, auburn hair in a bun, wearing an apron) kneels before Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing school uniform), holding her shoulders gently. Window_1 (partially open, curtains moving slightly) shows a view of the village. The atmosphere is tense and secretive."
+    },
+    {
+      "id": 4,
+      "voiceOver": "Chaque nuit, quand tout le monde dort, Piper se faufile hors de sa chambre. Elle s'envole doucement vers les nuages, s'entraînant en secret. Elle apprend à virevolter, à plonger, à remonter en flèche. C'est difficile de garder un si grand secret, mais Piper fait de son mieux pour ne pas décevoir sa maman.",
+      "imagePrompt": "Moonlit_field_1 near the village. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing dark clothes) practices flying, performing loops and twirls. Tree_1 (old, gnarled) stands nearby. Fireflies_1 (small, glowing) dot the air. The atmosphere is serene and magical."
+    },
+    {
+      "id": 5,
+      "voiceOver": "Un jour, pourtant, tout bascule. C'est la fête du village, et Piper est tellement excitée qu'elle oublie d'être prudente. Sans s'en rendre compte, elle s'élève de quelques centimètres au-dessus du sol. Les gens autour d'elle se figent, bouche bée. En un instant, son secret est révélé à tout le village !",
+      "imagePrompt": "Village_square_1 during a festive day. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing a blue summer dress) hovers a few inches above the ground, eyes wide with surprise. Mother_1 (40 years old, horrified expression, similar auburn hair, floral blouse) reaches out in panic. Floating_balloons_1 (colorful, various sizes) surround the scene. Villagers_2 (various ages, festive clothing) stare in disbelief. The atmosphere is a mix of wonder and alarm."
+    },
+    {
+      "id": 6,
+      "voiceOver": "Les choses s'enchaînent très vite après ça. Des voitures noires arrivent dans le village. Des hommes en costume emmènent Piper. Sa maman pleure, son papa proteste, mais rien n'y fait. Piper se retrouve dans une grande limousine, roulant vers l'inconnu.",
+      "imagePrompt": "Village_entrance_1 at dusk. Men_in_black_1 (tall, wearing dark suits and sunglasses) guide Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, looking scared, wearing the blue summer dress) towards a Black_car_1 (sleek, government-style). Parents_1 (Mother and Father, distressed, held back by other agents) watch helplessly. The atmosphere is tense and mysterious."
+    },
+    {
+      "id": 7,
+      "voiceOver": "La voiture s'arrête devant un immense bâtiment caché au milieu de nulle part. C'est une école, mais pas n'importe laquelle. C'est une école top-secrète pour les enfants aux pouvoirs extraordinaires comme Piper ! La directrice, Dr Inferna, accueille Piper avec un grand sourire. Elle lui explique que dans cette école, elle pourra enfin être elle-même et développer ses talents. Piper est à la fois effrayée et excitée.",
+      "imagePrompt": "School_entrance_1, a grand, mysterious building. Dr_Inferna (50 years old, stern face, silver hair in a tight bun, wearing a crisp suit) greets Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, looking nervous, wearing new school uniform). Other_students_1 (various ages, with subtle signs of powers) watch curiously from windows. The atmosphere is intimidating yet intriguing."
+    },
+    {
+      "id": 8,
+      "voiceOver": "Dans sa nouvelle classe, Piper découvre qu'elle n'est pas seule. Il y a Conrad, un garçon qui sait absolument tout sur tout. Smitty, qui peut voir à travers les murs. Violette, qui peut devenir toute petite en un clin d'œil. La joyeuse Bella, qui peut changer la couleur de tout ce qu'elle touche. Et Lily, qui peut déplacer les objets rien qu'en y pensant ! Au début, les autres élèves sont un peu distants avec Piper. Surtout Conrad, qui la regarde de haut avec son air de monsieur je-sais-tout. Mais petit à petit, Piper se fait des amis. Elle apprend à connaître ses camarades, à rire avec eux, à partager leurs joies et leurs peines.",
+      "imagePrompt": "School_classroom_1, futuristic and colorful. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, in school uniform) chats with Conrad_1 (13 years old, glasses, serious expression, school uniform), Smitty_1 (11 years old, mischievous grin, x-ray goggles), and Violette_1 (12 years old, purple hair, can shrink). Floating_objects_1 and Colorful_sparks_1 fill the air. The atmosphere is lively and magical."
+    },
+    {
+      "id": 9,
+      "voiceOver": "Pourtant, quelque chose cloche dans cette école parfaite. Piper remarque des choses étranges. Pourquoi certains élèves disparaissent-ils pendant des jours ? Pourquoi y a-t-il des portes verrouillées partout ? Et surtout, pourquoi Dr Inferna a-t-elle ce regard bizarre quand elle pense que personne ne la regarde ? Piper est curieuse de nature. Elle ne peut pas s'empêcher de poser des questions, d'observer, de chercher des réponses. Et ce qu'elle découvre lui glace le sang.",
+      "imagePrompt": "School_corridor_1 at night, dimly lit. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, in pajamas) peeks around a corner. Dr_Inferna (50 years old, stern face, silver hair, dark suit) speaks quietly with Shadowy_figures_1 near a Locked_door_1. Strange_symbols_1 glow on the walls. The atmosphere is eerie and suspenseful."
+    },
+    {
+      "id": 10,
+      "voiceOver": "Un soir, cachée dans le bureau de Dr Inferna, Piper trouve des documents terrifiants. L'école n'est pas ce qu'elle prétend être. Dr Inferna ne veut pas aider les enfants, elle veut utiliser leurs pouvoirs pour ses propres plans maléfiques ! Le cœur battant, Piper réalise qu'elle et ses amis sont en grand danger. Elle doit agir, et vite ! Mais que peut faire une jeune fille seule contre des adultes puissants et sans scrupules ? C'est alors que Piper a une idée folle : s'enfuir de l'école ! Mais pas toute seule. Elle veut emmener tous ses amis avec elle. C'est risqué, c'est peut-être même impossible. Mais Piper sait qu'elle ne peut pas abandonner ceux qu'elle a appris à aimer.",
+      "imagePrompt": "School_office_1, dark and mysterious. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, determined expression) examines Secret_documents_1 on a desk. Photos_of_children_1 and Strange_diagrams_1 cover the walls. Window_1 shows a stormy night outside. The atmosphere is tense and revealing."
+    },
+    {
+      "id": 11,
+      "voiceOver": "En pleine nuit, Piper réveille doucement ses camarades. Elle leur explique ce qu'elle a découvert. Certains ont peur, d'autres ne la croient pas. Mais finalement, ils décident de lui faire confiance. Le plan est simple : utiliser leurs pouvoirs combinés pour s'échapper. Conrad connaît tous les plans de l'école. Smitty peut repérer les gardes à travers les murs. Violette peut se faufiler dans les petits espaces pour désactiver les alarmes. Bella peut changer la couleur de leurs vêtements pour se camoufler. Et Lily peut ouvrir les portes verrouillées avec sa télékinésie. Quant à Piper, elle fera ce qu'elle sait faire de mieux : voler. Elle sera leurs yeux dans le ciel, les guidant vers la liberté.",
+      "imagePrompt": "School_dormitory_1 at night. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, determined expression) whispers to her friends Conrad_1, Smitty_1, Violette_1, Bella_1, and Lily_1 (all in pajamas, looking nervous but resolute). Escape_map_1 is spread on a bed. Moonlight streams through Window_1. The atmosphere is tense and conspiratorial."
+    },
+    {
+      "id": 12,
+      "voiceOver": "L'évasion commence. Le cœur battant, les enfants se faufilent dans les couloirs sombres. Chaque bruit les fait sursauter. Chaque ombre semble cacher un danger. Mais ensemble, ils avancent. Soudain, une alarme retentit ! Ils ont été repérés ! Dr Inferna et ses hommes de main se lancent à leur poursuite. C'est une course folle à travers l'école, utilisant chaque recoin, chaque passage secret que Conrad connaît.",
+      "imagePrompt": "School_hallway_2, dark and maze-like. Piper_McNimbus and her friends (all in dark clothes) run through the corridor. Alarm_lights_1 flash red. Shadow_of_Dr_Inferna_1 looms on a wall. Secret_passage_1 opens in the wall. The atmosphere is frantic and suspenseful."
+    },
+    {
+      "id": 13,
+      "voiceOver": "Enfin, ils atteignent le toit. Sans hésiter, Piper attrape ses amis un par un et s'envole dans la nuit. C'est dur, c'est épuisant, mais elle puise dans ses dernières forces. Derrière eux, les cris de rage de Dr Inferna s'estompent dans le lointain. Alors que l'aube pointe à l'horizon, Piper et ses amis volent vers un avenir incertain, mais libre. Ils ne savent pas ce qui les attend, mais une chose est sûre : ensemble, ils peuvent affronter n'importe quoi.",
+      "imagePrompt": "Night_sky_2 filled with stars. Piper_McNimbus (12 years old, long auburn hair, freckles, bright green eyes, wearing school uniform) flies, carrying her friends. Conrad_1, Smitty_1, Violette_1, Bella_1, and Lily_1 hold onto each other in a chain. School_building_1 shrinks in the distance. Moon_1 (large, bright) illuminates their path. The atmosphere is exhilarating and hopeful."
+    },
+    {
+      "id": 14,
+      "voiceOver": "Et vous, chers amis, que feriez-vous si vous découvriez que vous avez un pouvoir extraordinaire ? Garderiez-vous le secret ou l'utiliseriez-vous pour aider les autres ? L'aventure de Piper nous rappelle que nos différences peuvent être notre plus grande force, surtout quand on les partage avec des amis. Mais l'histoire de Piper et ses amis est loin d'être terminée. Que leur réserve l'avenir ? Dr Inferna va-t-elle les retrouver ? Et quels autres secrets et aventures les attendent ? Pour le savoir, il faudra attendre la suite des aventures de Piper McNimbus, la fille qui pouvait voler !",
+      "imagePrompt": "Sunrise_landscape_1 with rolling hills. Piper_McNimbus and her friends (all in tattered school uniforms) stand together on a hilltop, looking towards the rising sun. Each child's unique power is subtly displayed (Piper floating, Conrad with glowing head, Smitty's x-ray vision, Violette partially shrunk, Bella touching a flower that changes color, Lily levitating a small rock). Rainbow_1 arches across the sky. The atmosphere is triumphant and full of possibilities."
+    }
+  ]
+}
