@@ -17,6 +17,72 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+def read_story_json(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            story_data = json.load(file)
+        print(f"Contenu du fichier {file_path} lu avec succès.")
+        return story_data
+    except FileNotFoundError:
+        print(f"Erreur : Le fichier {file_path} n'a pas été trouvé.")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Erreur lors du parsing JSON : {e}")
+        return None
+    except Exception as e:
+        print(f"Erreur lors de la lecture du fichier : {str(e)}")
+        return None
+
+def process_story_slide(slide_data, output_dir):
+    print(f"Traitement de la diapositive {slide_data.get('id', 'inconnue')}:")
+    print(json.dumps(slide_data, indent=2, ensure_ascii=False))
+    print("-" * 50)
+
+    slide_number = slide_data['id']
+    
+    try:
+        # Générer l'image
+        image_prompt = slide_data['imagePrompt']
+        image_url = generate_image(image_prompt)
+        image_file = os.path.join(output_dir, f"story_slide_{slide_number}_image.png")
+        if image_url:
+            download_image(image_url, image_file)
+        else:
+            print(f"Avertissement : Impossible de générer l'image pour la diapositive {slide_number}")
+
+        # Vérifier si l'image existe
+        image_exists = os.path.exists(image_file)
+        if not image_exists:
+            print(f"Avertissement : L'image pour la diapositive {slide_number} n'existe pas")
+
+        # Créer le HTML
+        html_content = create_html_slide({
+            'number': slide_number,
+            'title': f"Slide {slide_number}",
+            'description': slide_data['voiceOver']
+        }, output_dir, image_exists)
+        html_file = os.path.join(output_dir, f"story_slide_{slide_number}.html")
+        with open(html_file, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+
+        # Créer le voice-over
+        voice_over = slide_data['voiceOver']
+        voice_over_file = os.path.join(output_dir, f"story_voice_over_{slide_number}.txt")
+        with open(voice_over_file, 'w', encoding='utf-8') as f:
+            f.write(voice_over)
+
+        # Générer l'audio
+        audio_file = os.path.join(output_dir, f"story_audio_{slide_number}.mp3")
+        text_to_speech(voice_over, audio_file)
+
+        # Créer la vidéo
+        video_file = os.path.join(output_dir, f"story_video_{slide_number}.mp4")
+        create_video_from_slide(html_file, audio_file, video_file)
+        
+        print(f"Traitement de la diapositive {slide_number} terminé avec succès.")
+    except Exception as e:
+        print(f"Erreur lors du traitement de la diapositive {slide_number}: {str(e)}")
+
 def extract_content(response):
     if isinstance(response, list) and len(response) > 0:
         return response[0].text if hasattr(response[0], 'text') else str(response[0])
