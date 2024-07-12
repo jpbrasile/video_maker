@@ -1,0 +1,13 @@
+Voici un prompt pour générer une image illustrant la diapositive "Préparation de l'environnement" :
+
+"Créez une image montrant un ordinateur portable moderne ouvert sur un bureau ordonné. Sur l'écran, affichez l'interface de Docker Desktop avec les conteneurs en cours d'exécution. Ajoutez des éléments graphiques représentant l'installation et la configuration de Docker, comme une icône de téléchargement, un engrenage de réglages ou un symbole de validation. Intégrez le titre "Préparation de l'environnement" dans un style visuel attrayant. Utilisez une palette de couleurs professionnelle et harmonieuse, avec des tons bleus et gris pour un aspect technique. L'image doit avoir un style plat et minimaliste, avec des formes géométriques simples et des ombres légères pour donner de la profondeur. Veillez à ce que tous les éléments soient clairement visibles et lisibles."
+
+Quelques éléments clés de ce prompt :
+
+- Description détaillée de la scène et des éléments à inclure
+- Indications sur le style visuel souhaité (plat, minimaliste, palette de couleurs)
+- Mise en évidence du titre de la diapositive
+- Représentation visuelle du processus d'installation et de configuration
+- Précisions sur la lisibilité et la clarté de l'image
+
+En suivant ces instructions, un artiste IA devrait être en mesure de créer une image pertinente, attrayante et représentative du contenu de la diapositive.

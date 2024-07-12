@@ -1,0 +1,9 @@
+Voici un texte de voice-over pour la diapositive "Préparation de l'environnement" :
+
+Pour commencer notre projet de manière fluide, il est essentiel de préparer correctement notre environnement de travail. La diapositive que vous voyez à l'écran met en évidence une étape cruciale : s'assurer d'avoir Docker Desktop installé sur votre machine.
+
+Docker Desktop est un outil incontournable pour simplifier le déploiement et l'exécution d'applications dans des conteneurs. Grâce à lui, nous pourrons créer des environnements isolés et reproductibles, facilitant ainsi le développement, les tests et le déploiement de notre application.
+
+Si vous n'avez pas encore installé Docker Desktop, je vous invite à le faire dès maintenant. Vous trouverez les instructions d'installation sur le site officiel de Docker, adapté à votre système d'exploitation. Une fois l'installation terminée, vous serez prêt à embarquer pour une expérience de développement simplifiée et efficace.
+
+Prenez le temps nécessaire pour cette étape préparatoire. Une base solide est la clé pour construire des projets réussis. Assurons-nous ensemble que nos environnements sont configurés correctement avant de passer à l'étape suivante.

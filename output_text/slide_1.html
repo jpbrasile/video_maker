@@ -1,0 +1,75 @@
+Voici le code HTML et CSS pour la diapositive demandée :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préparation de l'environnement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .slide {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .slide-image {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1>Préparation de l'environnement</h1>
+        <p>Assurez-vous d'avoir Docker Desktop installé sur votre machine.</p>
+        <div id="slide-image-container">
+            <img id="slide-image" class="slide-image" src="placeholder.jpg" alt="Image de la diapositive">
+        </div>
+    </div>
+</body>
+</html>
+```
+
+Explications :
+
+1. Le code HTML commence par la déclaration `<!DOCTYPE html>` et inclut les balises `<html>`, `<head>` et `<body>`.
+2. La balise `<meta name="viewport">` est ajoutée pour assurer la compatibilité avec les appareils mobiles.
+3. Le CSS est intégré dans la section `<style>` de la balise `<head>`.
+4. Le corps de la page est centré verticalement et horizontalement à l'aide de Flexbox.
+5. La diapositive est un élément `<div>` avec la classe `slide`. Elle a un arrière-plan blanc, une ombre portée, des coins arrondis et un remplissage interne.
+6. Le titre (`<h1>`) et le contenu (`<p>`) sont stylisés avec des couleurs et une taille de police appropriées.
+7. L'image est contenue dans un élément `<div>` avec l'ID `slide-image-container`.
+8. L'image elle-même est un élément `<img>` avec l'ID `slide-image` et la classe `slide-image`. Elle a une largeur maximale de 80% de son conteneur et une hauteur automatique pour conserver les proportions.
+9. Remplacez `placeholder.jpg` par le chemin d'accès à votre image réelle.
+
+N'oubliez pas d'ajuster les styles CSS selon vos préférences pour obtenir l'apparence souhaitée.

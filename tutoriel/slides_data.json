@@ -1,0 +1,62 @@
+[
+  {
+    "number": 1,
+    "title": "Tutoriel : Création automatique de vidéo à partir d'un fichier texte",
+    "description": "Ce tutoriel vous guidera à travers le processus de création automatique d'une vidéo à partir d'un fichier texte, en utilisant le code Python fourni. Nous allons décomposer le processus en plusieurs étapes et expliquer les parties clés du code.",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 2,
+    "title": "Étape 1 : Configuration de l'environnement",
+    "description": "<p>1. Assurez-vous d'avoir Python installé sur votre système.</p><p>2. Installez les bibliothèques nécessaires en utilisant pip :</p><p><span class=\"highlight\">pip install python-dotenv anthropic openai requests beautifulsoup4 moviepy Pillow selenium webdriver_manager</span></p><p>3. Créez un fichier <code>.env</code> dans le même répertoire que votre script et ajoutez vos clés API :</p><p><span class=\"highlight\">ANTHROPIC_API_KEY=votre_clé_anthropic<br>OPENAI_API_KEY=votre_clé_openai</span></p>",
+    "code": "pip install python-dotenv anthropic openai requests beautifulsoup4 moviepy Pillow selenium webdriver_manager\nANTHROPIC_API_KEY=votre_clé_anthropic\nOPENAI_API_KEY=votre_clé_openai",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 3,
+    "title": "Étape 2 : Préparation du contenu",
+    "description": "<p>1. Créez un fichier texte nommé <code>PLACE_HOLDER_TEXTE_VIDEO.txt</code> contenant le contenu que vous souhaitez transformer en vidéo.</p>",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 4,
+    "title": "Étape 3 : Transformation du texte en structure JSON",
+    "description": "Le code utilise l'API Claude d'Anthropic pour transformer le texte en une structure JSON de diapositives. Voici comment cela fonctionne :",
+    "code": "def get_slides_from_claude(content):\n    prompt = f\"\"\"\n    Transforme le texte suivant en une structure JSON de diapositives...\n    \"\"\"\n    message = anthropic_client.messages.create(\n        model=\"claude-3-sonnet-20240229\",\n        max_tokens=4000,\n        temperature=0,\n        system=\"Tu es un assistant spécialisé dans la structuration de contenu pour des présentations. Tu génères uniquement du JSON valide et bien formaté.\",\n        messages=[\n            {\"role\": \"user\", \"content\": prompt}\n        ]\n    )\n    return extract_content(message.content)",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 5,
+    "title": "Étape 4 : Traitement des diapositives",
+    "description": "Pour chaque diapositive, le script effectue plusieurs opérations :<ol><li>Génération du HTML :</li><li>Création du texte de voix off :</li><li>Génération de l'image illustrative :</li><li>Génération de l'audio :</li></ol>",
+    "code": "def create_html_slide(slide_data, output_dir, image_exists):\n    # ... (code pour générer le HTML)\n\ndef create_voice_over(slide_data):\n    # ... (code pour créer le texte de voix off avec Claude)\n\ndef create_image_prompt(slide_data):\n    # ... (code pour créer le prompt pour DALL-E)\n\ndef generate_image(prompt):\n    # ... (code pour générer l'image avec DALL-E)\n\ndef text_to_speech(text, output_path):\n    # ... (code pour générer l'audio avec l'API Text-to-Speech d'OpenAI)",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 6,
+    "title": "Étape 5 : Création des vidéos individuelles",
+    "description": "Pour chaque diapositive, le script crée une vidéo en combinant l'image rendue du HTML et l'audio généré :",
+    "code": "def create_video_from_slide(html_file, audio_file, output_file, duration=None):\n    # ... (code pour créer la vidéo avec MoviePy)",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 7,
+    "title": "Étape 6 : Agrégation des vidéos",
+    "description": "Enfin, le script combine toutes les vidéos individuelles en une seule vidéo finale :",
+    "code": "def aggregate_videos(output_dir, num_slides, transition_duration=1):\n    # ... (code pour agréger les vidéos avec des transitions)",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 8,
+    "title": "Étape 7 : Exécution du script",
+    "description": "La fonction <code>main()</code> orchestre tout le processus :",
+    "code": "def main():\n    # 1. Lire le contenu du fichier\n    # 2. Obtenir le JSON structuré de Claude\n    # 3. Traiter chaque diapositive\n    # 4. Agréger les vidéos\n\npython nom_du_script.py",
+    "image_url": "https://example.com/path/to/image.png"
+  },
+  {
+    "number": 9,
+    "title": "Conclusion",
+    "description": "Ce script automatise entièrement le processus de création de vidéo à partir d'un fichier texte. Il utilise des technologies avancées comme l'IA générative (Claude et DALL-E) pour créer du contenu riche et varié, tout en automatisant les aspects techniques de la production vidéo avec des outils comme Selenium et MoviePy.",
+    "image_url": "https://example.com/path/to/image.png"
+  }
+]

@@ -1,0 +1,1 @@
+Pour créer notre application Flask, commençons par ouvrir un éditeur de code et créer un nouveau fichier nommé "app.py". C'est dans ce fichier que nous écrirons le code Python qui constituera le cœur de notre application web. Assurez-vous d'avoir installé Flask, un micro-framework Python léger et puissant, avant de poursuivre.

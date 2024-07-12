@@ -1,0 +1,1 @@
+L'API Claude d'Anthropic analyse le texte d'entrée et le structure en un format JSON convivial pour les diapositives. Ce processus automatise la création de diapositives à partir de n'importe quel texte. Vous pouvez spécifier des paramètres pour personnaliser la sortie selon vos préférences, comme le niveau de détail ou le style de présentation.

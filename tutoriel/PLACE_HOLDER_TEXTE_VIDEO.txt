@@ -1,0 +1,119 @@
+# Tutoriel : Création automatique de vidéo à partir d'un fichier texte
+
+Ce tutoriel vous guidera à travers le processus de création automatique d'une vidéo à partir d'un fichier texte, en utilisant le code Python fourni. Nous allons décomposer le processus en plusieurs étapes et expliquer les parties clés du code.
+
+## Étape 1 : Configuration de l'environnement
+
+1. Assurez-vous d'avoir Python installé sur votre système.
+2. Installez les bibliothèques nécessaires en utilisant pip :
+
+```
+pip install python-dotenv anthropic openai requests beautifulsoup4 moviepy Pillow selenium webdriver_manager
+```
+
+3. Créez un fichier `.env` dans le même répertoire que votre script et ajoutez vos clés API :
+
+```
+ANTHROPIC_API_KEY=votre_clé_anthropic
+OPENAI_API_KEY=votre_clé_openai
+```
+
+## Étape 2 : Préparation du contenu
+
+1. Créez un fichier texte nommé `PLACE_HOLDER_TEXTE_VIDEO.txt` contenant le contenu que vous souhaitez transformer en vidéo.
+
+## Étape 3 : Transformation du texte en structure JSON
+
+Le code utilise l'API Claude d'Anthropic pour transformer le texte en une structure JSON de diapositives. Voici comment cela fonctionne :
+
+```python
+def get_slides_from_claude(content):
+    prompt = f"""
+    Transforme le texte suivant en une structure JSON de diapositives...
+    """
+    message = anthropic_client.messages.create(
+        model="claude-3-sonnet-20240229",
+        max_tokens=4000,
+        temperature=0,
+        system="Tu es un assistant spécialisé dans la structuration de contenu pour des présentations. Tu génères uniquement du JSON valide et bien formaté.",
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return extract_content(message.content)
+```
+
+Cette fonction envoie le contenu du fichier texte à Claude, qui le transforme en une structure JSON de diapositives.
+
+## Étape 4 : Traitement des diapositives
+
+Pour chaque diapositive, le script effectue plusieurs opérations :
+
+1. Génération du HTML :
+```python
+def create_html_slide(slide_data, output_dir, image_exists):
+    # ... (code pour générer le HTML)
+```
+
+2. Création du texte de voix off :
+```python
+def create_voice_over(slide_data):
+    # ... (code pour créer le texte de voix off avec Claude)
+```
+
+3. Génération de l'image illustrative :
+```python
+def create_image_prompt(slide_data):
+    # ... (code pour créer le prompt pour DALL-E)
+
+def generate_image(prompt):
+    # ... (code pour générer l'image avec DALL-E)
+```
+
+4. Génération de l'audio :
+```python
+def text_to_speech(text, output_path):
+    # ... (code pour générer l'audio avec l'API Text-to-Speech d'OpenAI)
+```
+
+## Étape 5 : Création des vidéos individuelles
+
+Pour chaque diapositive, le script crée une vidéo en combinant l'image rendue du HTML et l'audio généré :
+
+```python
+def create_video_from_slide(html_file, audio_file, output_file, duration=None):
+    # ... (code pour créer la vidéo avec MoviePy)
+```
+
+## Étape 6 : Agrégation des vidéos
+
+Enfin, le script combine toutes les vidéos individuelles en une seule vidéo finale :
+
+```python
+def aggregate_videos(output_dir, num_slides, transition_duration=1):
+    # ... (code pour agréger les vidéos avec des transitions)
+```
+
+## Étape 7 : Exécution du script
+
+La fonction `main()` orchestre tout le processus :
+
+```python
+def main():
+    # 1. Lire le contenu du fichier
+    # 2. Obtenir le JSON structuré de Claude
+    # 3. Traiter chaque diapositive
+    # 4. Agréger les vidéos
+```
+
+Pour exécuter le script, lancez simplement :
+
+```
+python nom_du_script.py
+```
+
+Le script vous demandera si vous voulez traiter une seule diapositive (pour les tests) ou toutes les diapositives.
+
+## Conclusion
+
+Ce script automatise entièrement le processus de création de vidéo à partir d'un fichier texte. Il utilise des technologies avancées comme l'IA générative (Claude et DALL-E) pour créer du contenu riche et varié, tout en automatisant les aspects techniques de la production vidéo avec des outils comme Selenium et MoviePy.

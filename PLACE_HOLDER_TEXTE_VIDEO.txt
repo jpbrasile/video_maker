@@ -1,0 +1,25 @@
+Voici un guide mis à jour pour créer votre application API Docker pour les calculs mathématiques simples : 1. Préparation de l'environnement Assurez-vous d'avoir Docker Desktop installé sur votre machine. 1. Création du répertoire du projet
+Copy
+Copy
+mkdir math_api cd math_api 1. Création du fichier Python (app.py) Application Python corrigée pour l'API mathématique Click to open code 1. Création du fichier requirements.txt requirements.txt corrigé Click to open code 1. Création du Dockerfile Dockerfile pour l'API mathématique Click to open code 1. Construction de l'image Docker Assurez-vous d'être dans le répertoire contenant tous les fichiers (app.py, requirements.txt, Dockerfile), puis exécutez :
+Copy
+Copy
+docker build -t math-api . 1. Lancement du conteneur Docker
+Copy
+Copy
+docker run -p 5000:5000 math-api 1. Test de l'API Utilisez l'une des méthodes suivantes pour tester l'API : a. Avec PowerShell (méthode recommandée) : Pour l'addition :
+Copy
+powershell
+Copy $body = @{ a = 5 b = 3 } | ConvertTo-Json Invoke-RestMethod -Uri "http://localhost:5000/add" -Method Post -Body $body -ContentType "application/json" Pour la multiplication :
+Copy
+powershell
+Copy $body = @{ a = 5 b = 3 } | ConvertTo-Json Invoke-RestMethod -Uri "http://localhost:5000/multiply" -Method Post -Body $body -ContentType "application/json" b. Avec curl.exe dans PowerShell : Pour l'addition :
+Copy
+powershell
+Copy curl.exe -X POST -H "Content-Type: application/json" -d '{\"a\": 5, \"b\": 3}' http://localhost:5000/add Pour la multiplication :
+Copy
+powershell
+Copy curl.exe -X POST -H "Content-Type: application/json" -d '{\"a\": 5, \"b\": 3}' http://localhost:5000/multiply 1. Arrêt du conteneur Quand vous avez fini de tester, vous pouvez arrêter le conteneur en utilisant Ctrl+C dans le terminal où il est en cours d'exécution, ou en utilisant la commande suivante dans un nouveau terminal :
+Copy
+Copy
+docker stop $(docker ps -q --filter ancestor=math-api) Ce guide corrigé devrait vous permettre de créer, déployer et tester votre API mathématique Docker sans rencontrer les erreurs précédentes. N'hésitez pas si vous avez des questions ou si vous rencontrez d'autres problèmes !

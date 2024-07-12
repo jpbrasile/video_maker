@@ -1,0 +1,10 @@
+anthropic
+openai
+requests
+beautifulsoup4
+moviepy
+Pillow
+selenium
+webdriver-manager
+peewee
+dotenv

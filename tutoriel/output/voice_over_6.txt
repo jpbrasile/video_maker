@@ -1,0 +1,1 @@
+Pour chaque diapositive, une vidéo est créée en combinant l'image rendue du HTML et l'audio généré. Cette étape permet d'obtenir des vidéos individuelles représentant chaque diapositive de la présentation. Vous pouvez personnaliser ces vidéos en ajustant les paramètres audio, tels que la voix et le tempo, pour créer une expérience plus engageante.

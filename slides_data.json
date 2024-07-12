@@ -1,0 +1,51 @@
+[
+  {
+    "number": 1,
+    "title": "Préparation de l'environnement",
+    "description": "Assurez-vous d'avoir <span class=\"highlight\">Docker Desktop</span> installé sur votre machine."
+  },
+  {
+    "number": 2,
+    "title": "Création du répertoire du projet",
+    "description": "<p>Exécutez les commandes suivantes :</p>\n\n<pre><code>mkdir math_api\ncd math_api</code></pre>"
+  },
+  {
+    "number": 3,
+    "title": "Création du fichier Python (app.py)",
+    "description": "Application Python corrigée pour l'API mathématique :",
+    "code": "# Importer les bibliothèques nécessaires\nimport json\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/add', methods=['POST'])\ndef add():\n    data = request.get_json()\n    a = data['a']\n    b = data['b']\n    result = a + b\n    return json.dumps({'result': result})\n\n@app.route('/multiply', methods=['POST'])\ndef multiply():\n    data = request.get_json()\n    a = data['a']\n    b = data['b']\n    result = a * b\n    return json.dumps({'result': result})\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5000)"
+  },
+  {
+    "number": 4,
+    "title": "Création du fichier requirements.txt",
+    "description": "Contenu du fichier <code>requirements.txt</code> corrigé :",
+    "code": "flask"
+  },
+  {
+    "number": 5,
+    "title": "Création du Dockerfile",
+    "description": "Contenu du <code>Dockerfile</code> pour l'API mathématique :",
+    "code": "FROM python:3.9-slim\n\nWORKDIR /app\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . .\n\nCMD [\"python\", \"app.py\"]"
+  },
+  {
+    "number": 6,
+    "title": "Construction de l'image Docker",
+    "description": "Assurez-vous d'être dans le répertoire contenant tous les fichiers (<code>app.py</code>, <code>requirements.txt</code>, <code>Dockerfile</code>), puis exécutez :\n\n<pre><code>docker build -t math-api .</code></pre>"
+  },
+  {
+    "number": 7,
+    "title": "Lancement du conteneur Docker",
+    "description": "Exécutez la commande suivante :\n\n<pre><code>docker run -p 5000:5000 math-api</code></pre>"
+  },
+  {
+    "number": 8,
+    "title": "Test de l'API",
+    "description": "Utilisez l'une des méthodes suivantes pour tester l'API :\n\n<p><strong>a. Avec PowerShell (méthode recommandée) :</strong></p>\n\n<p>Pour l'addition :</p>\n\n<pre><code>$body = @{ a = 5; b = 3 } | ConvertTo-Json\nInvoke-RestMethod -Uri \"http://localhost:5000/add\" -Method Post -Body $body -ContentType \"application/json\"</code></pre>\n\n<p>Pour la multiplication :</p>\n\n<pre><code>$body = @{ a = 5; b = 3 } | ConvertTo-Json\nInvoke-RestMethod -Uri \"http://localhost:5000/multiply\" -Method Post -Body $body -ContentType \"application/json\"</code></pre>\n\n<p><strong>b. Avec curl.exe dans PowerShell :</strong></p>\n\n<p>Pour l'addition :</p>\n\n<pre><code>curl.exe -X POST -H \"Content-Type: application/json\" -d '{\"a\": 5, \"b\": 3}' http://localhost:5000/add</code></pre>\n\n<p>Pour la multiplication :</p>\n\n<pre><code>curl.exe -X POST -H \"Content-Type: application/json\" -d '{\"a\": 5, \"b\": 3}' http://localhost:5000/multiply</code></pre>"
+  },
+  {
+    "number": 9,
+    "title": "Arrêt du conteneur",
+    "description": "Quand vous avez fini de tester, vous pouvez arrêter le conteneur en utilisant <code>Ctrl+C</code> dans le terminal où il est en cours d'exécution, ou en utilisant la commande suivante dans un nouveau terminal :\n\n<pre><code>docker stop $(docker ps -q --filter ancestor=math-api)</code></pre>",
+    "image_url": "https://example.com/path/to/image.png"
+  }
+]

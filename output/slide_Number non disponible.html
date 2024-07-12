@@ -1,0 +1,101 @@
+
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Création du fichier Python (app.py)</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #333333;
+                color: #ffffff;
+            }
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 90%;
+                max-width: 1200px;
+            }
+            .text-container {
+                flex: 1;
+                margin-right: 20px;
+            }
+            .title {
+                font-size: 2.5em;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            .description {
+                font-size: 1em;
+                margin-bottom: 20px;
+                color: #cccccc;
+            }
+            .description p {
+                margin: 10px 0;
+            }
+            .highlight {
+                color: #FFD700;
+            }
+            .code-container {
+                border: 1px solid #ccc;
+                background-color: #444444;
+                padding: 10px;
+                overflow-x: auto;
+                color: #e0e0e0;
+                margin-bottom: 20px;
+            }
+            .image-container {
+                max-width: 45%;
+                flex: 0 0 45%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            @media (max-width: 800px) {
+                .container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .text-container, .image-container {
+                    max-width: 100%;
+                }
+                .text-container {
+                    margin-right: 0;
+                }
+                .image-container {
+                    margin-top: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-container">
+                <div class="title">Création du fichier Python (app.py)</div>
+                <div class="description">
+                    Application Python corrigée pour l'API mathématique
+                </div>
+                <div class="code-container">
+                    <pre><code># Contenu du fichier app.py
+# ...</code></pre>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://example.com/path/to/image.png" alt="Example Image">
+            </div>
+        </div>
+    </body>
+    </html>
+    

@@ -1,0 +1,1 @@
+Pour construire l'image Docker, assurez-vous d'être dans le répertoire contenant tous les fichiers nécessaires. Ensuite, exécutez la commande appropriée pour créer l'image avec un nom personnalisé. Une fois l'image construite, vous pourrez l'utiliser pour déployer votre application conteneurisée de manière efficace.

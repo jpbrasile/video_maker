@@ -1,0 +1,1 @@
+Commençons par créer notre fichier Python app.py. C'est ici que nous allons écrire le code pour notre API mathématique. Nous pouvons facilement définir les routes et les fonctions pour effectuer diverses opérations arithmétiques. Que vous souhaitiez additionner, soustraire, multiplier ou diviser, cette application vous permettra de le faire de manière simple et intuitive.

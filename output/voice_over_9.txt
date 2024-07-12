@@ -1,0 +1,1 @@
+Une fois que vous avez terminé vos tests, il est temps d'arrêter le conteneur. Vous pouvez facilement le faire soit en utilisant un raccourci clavier dans le terminal où il est en cours d'exécution, soit en exécutant une commande dans un nouveau terminal. Prenez la méthode qui vous convient le mieux pour arrêter proprement le conteneur avant de passer à l'étape suivante.

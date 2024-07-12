@@ -1,0 +1,1 @@
+Pour commencer, créons un nouveau répertoire pour notre projet. C'est une étape cruciale afin d'organiser notre code et nos fichiers. Ce répertoire servira de base pour développer notre application. Vous aurez ainsi un espace de travail dédié, ce qui facilitera la gestion de votre projet à long terme.
