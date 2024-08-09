@@ -1,40 +1,38 @@
-## Faisons le tutoriel correspondant sous forme de vidéo
-- L'idée est de partir de la synthèse récapitulée par sonnet 3.5 de notre programme précédent pour en faire un tuto.
-- Pour cela on établit un dialogue avec sonnet 3.5 pour dégrossir le problème:
-   -  Pour créer les planches HTML support,
-    - Le texte des voice over,
-    - Le prompt pour produire les images
-    - Le code python pour stocker ces données dans des répertoires
-    - Le code python créant les MP3 et les images et qui les stockent
-    - Le code python qui fait l'assemblage
-    - Ce dégrossissage montre qu'il est préférable d'avancer pas à pas en construisant et validant pas à pas le code python correspondant, ce que nous allons faire maintenant avec un nouveau thread sonnet 3.5.
-  - Créer un code python permettant de dialoguer avec sonnet 3.5
-      - On utilisera Visual Studio Code pour la mise en oeuvre et pour tester les codes
-      - On utilisera anaconda pour créer un environnement logiciel spécifique. Nous utiliserons l'environnement teambot déjà créer avec conda activate teambot dans un terminal
-      - On crée un répertoire de travail video-maker dans lequel on met le fichier .env avec nos clefs API, ainsi que les fichiers requirements.txt et anthropic-api-hello-world.py créer par sonnet 3.5
-    Le dialogue fonctionne :
+2JSONV2.py: 
+Ce script Python semble être conçu pour automatiser la création de vidéos à partir de diapositives générées par des outils d'intelligence artificielle (IA). Voici un résumé des principales fonctionnalités du script :
 
-```
-(base) PS C:\Users\test\Documents\AI_Automation\video_maker> conda activate teambot
-(teambot) PS C:\Users\test\Documents\AI_Automation\video_maker> python anthropic-api-hello-world.py
-```
-- Claude dit: [TextBlock(text='Bonjour !', type='text')]
-- Création d'une vidéo à partir d'un texte
-- Ce projet automatise la création de vidéos éducatives à partir de contenu textuel, utilisant diverses technologies et APIs. Le processus se déroule en plusieurs étapes intégrées dans un script Python unique :
-- Conversion du texte :
-  - Lit le contenu du fichier PLACE_HOLDER_TEXTE_VIDEO.txt.
-  - Utilise l'API Claude d'Anthropic pour convertir le texte en structure JSON de diapositives.
--Traitement des diapositives :
-  - Génère un fichier HTML structuré avec CSS intégré pour chaque diapositive.
-  - Crée un texte de voix off avec Claude.
-  - Produit une image illustrative via l'API DALL-E d'OpenAI.
-  - Génère un fichier audio de la voix off avec l'API Text-to-Speech d'OpenAI.
-- Création des vidéos :
-  - Capture une image du HTML rendu avec Selenium.
-  - Combine l'image et l'audio en utilisant MoviePy pour chaque diapositive.
-- Agrégation finale :
-  - Assemble toutes les vidéos individuelles en une seule vidéo.
-  - Ajoute des transitions entre les diapositives.
-Le projet utilise Python avec diverses bibliothèques (BeautifulSoup, Requests, Pillow, MoviePy) et APIs (Anthropic, OpenAI).
-Cette approche intégrée offre une solution complète et efficace pour la production automatisée de contenu vidéo éducatif, de la conversion du texte à la création de la vidéo finale.
-⚙️ : Text to video de longue durée en open source
+### 1. **Lecture et traitement de fichiers JSON**
+   - **`read_story_json(file_path)`** : Lit un fichier JSON contenant des données de diapositive et renvoie le contenu sous forme de dictionnaire Python.
+
+### 2. **Génération de contenu pour les diapositives**
+   - **`get_slides_from_claude(content)`** : Utilise l'API d'Anthropic pour transformer un texte en un ensemble de diapositives structurées en JSON.
+   - **`process_story_slide(slide_data, output_dir)` et `process_slide(slide_data, output_dir)`** : Traite chaque diapositive en générant une image, un fichier audio, un fichier HTML et une vidéo. Cela inclut la création de prompts pour générer des images, des descriptions pour la voix off, et la conversion du HTML en vidéo.
+
+### 3. **Génération de médias**
+   - **`generate_image(prompt)`** : Utilise l'API OpenAI pour générer une image à partir d'un prompt.
+   - **`text_to_speech(text, output_path)`** : Génère un fichier audio à partir d'un texte.
+   - **`render_html_to_image(html_file, output_image)`** : Utilise Selenium pour rendre un fichier HTML en une image.
+   - **`create_video_from_slide(html_file, audio_file, output_file)`** : Crée une vidéo à partir du HTML et de l'audio généré.
+
+### 4. **Agrégation des vidéos**
+   - **`aggregate_videos(output_dir, num_slides, prefix="", transition_duration=1)`** : Concatène toutes les vidéos générées pour chaque diapositive en une seule vidéo finale.
+
+### 5. **Utilisation de divers services et API**
+   - Le script utilise plusieurs bibliothèques externes et services tels que:
+     - **Anthropic** : Pour générer du contenu textuel structuré.
+     - **OpenAI** : Pour la génération d'images et la synthèse vocale.
+     - **MoviePy** : Pour manipuler des clips vidéo.
+     - **PIL (Python Imaging Library)** : Pour manipuler des images.
+     - **Selenium** : Pour automatiser le rendu HTML dans un navigateur Chrome.
+
+### 6. **Modes de fonctionnement**
+   - Le script propose plusieurs modes d'exécution:
+     - **PLACE_HOLDER_TEXTE_VIDEO.txt** : Lit le contenu du fichier texte, génère un JSON structuré, et le traite.
+     - **story.json** : Lit un fichier JSON contenant une histoire structurée et traite chaque diapositive.
+     - **Test local** : Mode de test avec des données locales fictives pour vérifier les fonctionnalités.
+
+### 7. **Interface utilisateur**
+   - Le script interagit avec l'utilisateur via la console pour sélectionner des options et des modes de traitement.
+
+### Conclusion
+Ce script est un outil complet pour automatiser la création de vidéos basées sur des diapositives. Il intègre des technologies de traitement du langage naturel, de génération d'images, de synthèse vocale et de montage vidéo pour transformer du contenu textuel en vidéos prêtes à être diffusées.
